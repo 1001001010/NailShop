@@ -17,5 +17,12 @@ class Product extends Model
         'color',
         'volume'
     ];
-    
+    public function likes()
+    {
+        return $this->belongsTo(Like::class);
+    }
+    public function basket()
+    {
+        return $this->belongsTo(Basket::class);
+    }
 }

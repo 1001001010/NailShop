@@ -10,11 +10,20 @@
                 <p class="text-2xl font-semibold tracking-widest">{{ $product->name }}</p>
                 <p>{{ $product->price }} ₽</p>
                 <button
-                    class="w-full px-4 py-2 rounded-xl border text-white hover:text-[#F242EE]/70 border-[#F242EE]/70 bg-[#F242EE]/70 transition-all duration-500 hover:bg-transparent">Добавить
-                    в корзину</button>
-                <button
-                    class="w-full px-4 py-2 rounded-xl border hover:text-white text-[#F242EE]/70 border-[#F242EE]/70 hover:bg-[#F242EE]/70 transition-all duration-500 bg-transparent">Добавить
-                    в избранное</button>
+                    class="w-full px-4 py-2 rounded-xl border text-white hover:text-[#F242EE]/70 border-[#F242EE]/70 bg-[#F242EE]/70 transition-all duration-500 hover:bg-transparent">
+                    <a href="{{ route('ToBasket', ['product_id' => $product->id]) }}">Добавить в корзину</a>
+                </button>
+                @if (isset($like))
+                    <button
+                        class="w-full px-4 py-2 rounded-xl border hover:text-white text-[#F242EE]/70 border-[#F242EE]/70 hover:bg-[#F242EE]/70 transition-all duration-500 bg-transparent">
+                        <a href="{{ route('ToLike', ['product_id' => $product->id]) }}">Удалить из избранного</a>
+                    </button>
+                @else
+                    <button
+                        class="w-full px-4 py-2 rounded-xl border hover:text-white text-[#F242EE]/70 border-[#F242EE]/70 hover:bg-[#F242EE]/70 transition-all duration-500 bg-transparent">
+                        <a href="{{ route('ToLike', ['product_id' => $product->id]) }}">Добавить в избранное</a>
+                    </button>
+                @endif
             </div>
         </div>
         <div class="flex flex-col gap-6">

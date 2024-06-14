@@ -28,6 +28,15 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function basket()
+    {
+        return $this->hasOne(Basket::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
