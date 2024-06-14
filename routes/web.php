@@ -16,5 +16,7 @@ Route::get('/admin', [AdminController::class, 'index'])->name('Admin')->middlewa
 Route::post('/admin/position/add', [AdminController::class, 'new_product'])->name('NewPosition')->middleware([IsAdmin::class]);
 Route::get('/admin/delete/{product_id}', [AdminController::class, 'delete_product'])->name('DeleteProduct')->middleware([IsAdmin::class]);
 Route::post('/validate', [HomeController::class, 'validate'])->name('Validate');
+Route::get('/edit/{product_id}', [AdminController::class, 'edit_product'])->name('EditTovar')->middleware([IsAdmin::class]);
+Route::post('/edit/{product_id}', [AdminController::class, 'save_edit_product'])->name('EditTovar')->middleware([IsAdmin::class]);
 
 require __DIR__.'/auth.php';
