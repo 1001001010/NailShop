@@ -34,8 +34,13 @@
                         </path>
                     </svg>
                 </a>
-                <a href="{{ route('profile') }}"
-                    class="px-4 py-2 rounded-xl opacity-70 border border-[#F242EE] bg-[#F242EE] text-white transition-all duration-500 hover:bg-transparent hover:text-[#F242EE]">Вход</a>
+                @guest
+                    <a href="{{ route('profile') }}"
+                        class="px-4 py-2 rounded-xl opacity-70 border border-[#F242EE] bg-[#F242EE] text-white transition-all duration-500 hover:bg-transparent hover:text-[#F242EE]">Вход</a>
+                @else
+                    <a href="{{ route('profile') }}"
+                        class="px-4 py-2 rounded-xl opacity-70 border border-[#F242EE] bg-[#F242EE] text-white transition-all duration-500 hover:bg-transparent hover:text-[#F242EE]">Профиль</a>
+                @endguest
             </nav>
             <button id="toggler" class="md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
