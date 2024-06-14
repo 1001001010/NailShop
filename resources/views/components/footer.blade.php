@@ -1,6 +1,6 @@
 <footer class="grid-container bg-[#F7BDF6] py-4">
     <div class="flex max-md:flex-col items-center lg:items-start justify-between gap-4">
-        <a href="index.html" class="font-Caveat font-bold text-4xl">NailShop</a>
+        <a href="{{ route('index') }}" class="font-Caveat font-bold text-4xl">NailShop</a>
         <div class="flex items-center gap-4 max-md:flex-col">
             <div class="flex items-center gap-2">
                 <a class="transition-all duration-500 group">

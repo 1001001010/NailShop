@@ -5,9 +5,9 @@
             <a href="{{ route('index') }}" class="font-Caveat font-bold text-4xl">NailShop</a>
             <nav id="menu"
                 class="flex items-center gap-6 transition-all duration-500 z-[4] max-md:flex-col max-md:bg-white max-md:w-full max-md:absolute max-md:left-0 max-md:py-4 max-md:top-0 max-md:-translate-y-full">
-                <a href="Pages/catalog.html"
+                <a href="{{ route('catalog') }}"
                     class="flex flex-col after:w-0 after:h-px after:bg-[#292929] after:transition-all after:duration-500 hover:after:w-full">Каталог</a>
-                <a class="transition-all duration-500 hover:text-[#F242EE]/70">
+                <a class="transition-all duration-500 hover:text-[#F242EE]/70" href="{{ route('profile') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         aria-hidden="true" role="img" class="icon text-3xl" width="1em" height="1em"
                         viewBox="0 0 24 24" data-v-4fa0a2a1="">

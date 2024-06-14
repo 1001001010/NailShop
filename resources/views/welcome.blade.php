@@ -5,42 +5,17 @@
         <div class="flex flex-col gap-6">
             <p class="text-2xl font-semibold tracking-widest">Новинки</p>
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-                <div class="flex flex-col gap-4">
-                    <a href="Pages/product.html"
-                        class="overflow-hidden rounded-xl border border-[#F7BDF6]/70 group shadow-[0px_0px_13px_-7px_black]">
-                        <img src="{{ asset('img/products/4.jpeg') }}" alt=""
-                            class="transition-all duration-500 group-hover:scale-110 aspect-[7/10] object-cover">
-                    </a>
-                    <p>Антисептик малиновый смузи, 150 мл</p>
-                    <p class="text-2xl font-semibold tracking-widest">350 ₽</p>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <a href="Pages/product.html"
-                        class="overflow-hidden rounded-xl border border-[#F7BDF6]/70 group shadow-[0px_0px_13px_-7px_black]">
-                        <img src="{{ asset('img/products/4.jpeg') }}" alt=""
-                            class="transition-all duration-500 group-hover:scale-110 aspect-[7/10] object-cover">
-                    </a>
-                    <p>Антисептик малиновый смузи, 150 мл</p>
-                    <p class="text-2xl font-semibold tracking-widest">350 ₽</p>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <a href="Pages/product.html"
-                        class="overflow-hidden rounded-xl border border-[#F7BDF6]/70 group shadow-[0px_0px_13px_-7px_black]">
-                        <img src="{{ asset('img/products/4.jpeg') }}" alt=""
-                            class="transition-all duration-500 group-hover:scale-110 aspect-[7/10] object-cover">
-                    </a>
-                    <p>Антисептик малиновый смузи, 150 мл</p>
-                    <p class="text-2xl font-semibold tracking-widest">350 ₽</p>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <a href="Pages/product.html"
-                        class="overflow-hidden rounded-xl border border-[#F7BDF6]/70 group shadow-[0px_0px_13px_-7px_black]">
-                        <img src="{{ asset('img/products/4.jpeg') }}" alt=""
-                            class="transition-all duration-500 group-hover:scale-110 aspect-[7/10] object-cover">
-                    </a>
-                    <p>Антисептик малиновый смузи, 150 мл</p>
-                    <p class="text-2xl font-semibold tracking-widest">350 ₽</p>
-                </div>
+                @foreach ($product as $item)
+                    <div class="flex flex-col gap-4">
+                        <a href="{{ route('product', ['product_id' => $item->id]) }}"
+                            class="overflow-hidden rounded-xl border border-[#F7BDF6]/70 group shadow-[0px_0px_13px_-7px_black]">
+                            <img src="{{ asset($item->photo) }}" alt=""
+                                class="transition-all duration-500 group-hover:scale-110 aspect-[7/10] object-cover">
+                        </a>
+                        <p>{{ $item->name }}</p>
+                        <p class="text-2xl font-semibold tracking-widest">{{ $item->price }} ₽</p>
+                    </div>
+                @endforeach
             </div>
         </div>
         <img src="Assets/Images/hero/main.jpg" alt="" class="w-full rounded-xl border border-[#F7BDF6]/70">

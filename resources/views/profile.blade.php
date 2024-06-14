@@ -43,10 +43,16 @@
                 class="w-fit px-4 py-2 rounded-xl border text-white hover:text-[#F242EE]/70 border-[#F242EE]/70 bg-[#F242EE]/70 transition-all duration-500 hover:bg-transparent">Перейти
                 к заказам</a>
         </div>
+        @if (Auth::user() and Auth::user()->is_admin == 1)
+            <div class="flex flex-col gap-6">
+                <p class="text-2xl font-semibold tracking-widest">Панель администратора</p>
+                <a href="{{ route('Admin') }}"
+                    class="w-fit px-4 py-2 rounded-xl border text-white hover:text-[#F242EE]/70 border-[#F242EE]/70 bg-[#F242EE]/70 transition-all duration-500 hover:bg-transparent">Перейти
+                    в панель</a>
+            </div>
+        @endif
         <div class="flex flex-col gap-6">
             <p class="text-2xl font-semibold tracking-widest">Выход из аккаунта</p>
-            {{-- <button
-                class="w-fit px-4 py-2 rounded-xl border text-white hover:text-[#F242EE]/70 border-[#F242EE]/70 bg-[#F242EE]/70 transition-all duration-500 hover:bg-transparent">Выйти</button> --}}
             <button
                 class="w-fit px-4 py-2 rounded-xl border text-white hover:text-[#F242EE]/70 border-[#F242EE]/70 bg-[#F242EE]/70 transition-all duration-500 hover:bg-transparent"
                 href="{{ route('logout') }}"
