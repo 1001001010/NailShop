@@ -28,4 +28,30 @@ class HomeController extends Controller
             abort(404);
         }
     }
+    public function validate(Request $request)
+    {
+        $minPrice = $request->input('min_price');
+        $maxPrice = $request->input('max_price');
+    
+        $products = Product::query();
+    
+        if ($minPrice) {
+            $products->where('price', '>=', $minPrice);
+        }
+    
+        if ($maxPrice) {
+            $products->where('price', '<=', $maxPrice);
+        }
+
+        $products = $products->get();
+    
+        // Возвращаем отфильтрованные продукты
+        return view('search', ['products' => $products]);
+    }
+    public function search(Request $request) {
+        // Поиск
+        $word = $request->word;
+        $positions = Product::where('name', 'like', "%{$word}%")->orWhere('description', 'like', "%{$word}%")->orderBy('id')->get();
+        return view('search', ['products' => $positions]);
+    }
 }

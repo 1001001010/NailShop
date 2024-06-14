@@ -1,0 +1,25 @@
+@extends('layouts.app')
+
+@section('content')
+    <main class="grid-container gap-y-20 grow my-10">
+        <div class="flex flex-col gap-6">
+            <p class="text-2xl font-semibold tracking-widest">Результаты поиска</p>
+            <div class="lg:w-3/4">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                    @foreach ($products as $item)
+                        <div class="flex flex-col gap-4">
+                            <a href="{{ route('product', ['product_id' => $item->id]) }}"
+                                class="overflow-hidden rounded-xl border border-[#F7BDF6]/70 group shadow-[0px_0px_13px_-7px_black]">
+                                <img src="{{ asset($item->photo) }}" alt=""
+                                    class="transition-all duration-500 group-hover:scale-110 aspect-[7/10] object-cover">
+                            </a>
+                            <p>{{ $item->name }}</p>
+                            <p class="text-2xl font-semibold tracking-widest">{{ $item->price }} ₽</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+@endsection

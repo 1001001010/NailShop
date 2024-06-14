@@ -5,6 +5,14 @@
             <a href="{{ route('index') }}" class="font-Caveat font-bold text-4xl">NailShop</a>
             <nav id="menu"
                 class="flex items-center gap-6 transition-all duration-500 z-[4] max-md:flex-col max-md:bg-white max-md:w-full max-md:absolute max-md:left-0 max-md:py-4 max-md:top-0 max-md:-translate-y-full">
+                <form action="{{ route('Search') }}" class="relative" method="POST">
+                    @csrf
+                    <input type="text" class="pl-4 pr-10 py-2 rounded-xl border border-black/10 focus:outline-none"
+                        placeholder="Хочу найти" name="word">
+                    <button class="absolute right-2 top-1/2 -translate-y-1/2" type="submit">
+                        <img src="{{ asset('img/hero/search.png') }}" alt="" class="w-8">
+                    </button>
+                </form>
                 <a href="{{ route('catalog') }}"
                     class="flex flex-col after:w-0 after:h-px after:bg-[#292929] after:transition-all after:duration-500 hover:after:w-full">Каталог</a>
                 <a class="transition-all duration-500 hover:text-[#F242EE]/70" href="{{ route('profile') }}">
