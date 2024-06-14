@@ -37,6 +37,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(Basket::class);
     }
+
+    public function purchase()
+    {
+        return $this->hasOne(Purchase::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

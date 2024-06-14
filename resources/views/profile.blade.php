@@ -39,7 +39,7 @@
         </div>
         <div class="flex flex-col gap-6">
             <p class="text-2xl font-semibold tracking-widest">Мои заказы</p>
-            <a href="orders.html"
+            <a href="{{ route('open_orders') }}"
                 class="w-fit px-4 py-2 rounded-xl border text-white hover:text-[#F242EE]/70 border-[#F242EE]/70 bg-[#F242EE]/70 transition-all duration-500 hover:bg-transparent">Перейти
                 к заказам</a>
         </div>

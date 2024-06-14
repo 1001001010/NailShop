@@ -24,4 +24,6 @@ Route::get('/liked/open', [LikeController::class, 'open_liked'])->name('OpenLike
 Route::get('/basket/add/{product_id}', [LikeController::class, 'add_basket'])->name('ToBasket')->middleware(['auth', 'verified']);
 Route::get('/basket/open', [LikeController::class, 'open_basket'])->name('OpenBasket')->middleware(['auth', 'verified']);
 Route::get('/basket/delete/{basket_id}', [LikeController::class, 'delete_basket'])->name('DeleteBasket')->middleware(['auth', 'verified']);
+Route::get('/buy', [ProfileController::class, 'buy'])->middleware(['auth', 'verified'])->name('Buy');
+Route::get('/open_orders', [ProfileController::class, 'open_orders'])->middleware(['auth', 'verified'])->name('open_orders');
 require __DIR__.'/auth.php';
